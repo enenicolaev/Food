@@ -1,15 +1,14 @@
 // Timer
 
 
-function timer(end) {
-   const deadline = end;
+function timer(deadline) {
 
    function getTimeRemaining(endtime) {
       const t = Date.parse(endtime) - Date.parse(new Date()),
-         days = Math.floor( (t/(1000*60*60*24)) ),
-         seconds = Math.floor( (t/1000) % 60 ),
-         minutes = Math.floor( (t/1000/60) % 60 ),
-         hours = Math.floor( (t/(1000*60*60) % 24) );
+         days = Math.floor( (t / (1000 * 60 * 60 * 24)) ),
+         seconds = Math.floor( (t / 1000) % 60 ),
+         minutes = Math.floor( (t / 1000 / 60) % 60 ),
+         hours = Math.floor( (t / (1000 * 60 * 60) % 24) );
 
       return {
          'total': t,
@@ -42,18 +41,22 @@ function timer(end) {
       function updateClock() {
          const t = getTimeRemaining(endtime);
 
-         days.innerHTML = getZero(t.days);
-         hours.innerHTML = getZero(t.hours);
-         minutes.innerHTML = getZero(t.minutes);
-         seconds.innerHTML = getZero(t.seconds);
+         days.textContent = getZero(t.days);
+         hours.textContent = getZero(t.hours);
+         minutes.textContent = getZero(t.minutes);
+         seconds.textContent = getZero(t.seconds);
 
          if (t.total <= 0) {
-               clearInterval(timeInterval);
-         }
+            clearInterval(timeInterval);
+            days.textContent = 0;
+            hours.textContent = 0;
+            minutes.textContent = 0;
+            seconds.textContent = 0;
          }
       }
+   }
 
-      setClock('.timer', deadline);
+   setClock('.timer', deadline);
 }
 
 

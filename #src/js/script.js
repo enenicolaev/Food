@@ -1,10 +1,8 @@
-require('es6-promise').polyfill();
-
 
 import calc from './modules/calc';
 import tabs from './modules/tabs';
 import modal from './modules/modal';
-import { openModal, closeModal } from './modules/modal';
+import { openModal } from './modules/modal';
 import forms from './modules/forms';
 import slider from './modules/slider';
 import cards from './modules/cards';
@@ -16,7 +14,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
    const modalTimerId = setTimeout(() => {
       openModal('.modal', modalTimerId)
-   }, 300000);
+   }, 30000);
 
    tabs({
       tabSelector: '.tabheader__item',
@@ -38,9 +36,6 @@ window.addEventListener('DOMContentLoaded', function () {
    modal(".modal", modalTimerId);
    forms("form");
    cards();
-   timer("2020-12-31");
-
-
-
+   timer("2021-05-20");
 
 });

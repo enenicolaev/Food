@@ -22,7 +22,7 @@ function forms(formSelector) {
          headers: {
             "Content-type": "application/json"
          },
-         body: data
+         body: data,
       });
 
       return await res.json(); // Нужно вернуть промис!!!
@@ -47,10 +47,10 @@ function forms(formSelector) {
 
 
          const formData = new FormData(form),
-            json = JSON.stringify(Object.fromEntries(formData.entries()));
+               json = JSON.stringify(Object.fromEntries(formData.entries()));
 
 
-         postData("http://localhost:25000/requests", json)
+         postData("http://localhost:3000/requests", json)
             .then(response => {
                console.log(response);
                showThanksModal(message.success);

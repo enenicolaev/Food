@@ -1,3 +1,4 @@
+
 // Используем классы для создание карточек меню
 
 
@@ -12,13 +13,8 @@ function cards() {
          this.price = price;
          this.classes = classes;
          this.parent = document.querySelector(parentSelector);
-         this.transfer = 27;
-         this.changeToUAH();
       }
 
-      changeToUAH() {
-         this.price = this.price * this.transfer;
-      }
 
       render() {
          const element = document.createElement('div');
@@ -58,7 +54,7 @@ function cards() {
    };
 
 
-   getCardInfo("http://localhost:25000/menu")
+   getCardInfo("http://localhost:3000/menu")
       .then(data => {
          data.forEach(({
             img,
